@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado | Dr. Victor Hugo da Veiga Jardim</title>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '735396036160586');
+    fbq('track', 'PageView');
+    // It's common to track a "Lead" or "CompleteRegistration" event on the thank you page.
+    fbq('track', 'Lead');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=735396036160586&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e4e8e9;
+            color: #101b15;
+        }
+        .text-brand-dark { color: #101b15; }
+        .bg-brand-dark { background-color: #101b15; }
+        .text-brand-accent { color: #5c7266; }
+        .bg-brand-accent { background-color: #5c7266; }
+        .hover\:bg-brand-accent-dark:hover { background-color: #4a5d53; }
+        .bg-brand-light { background-color: #e4e8e9; }
+        .bg-brand-white { background-color: #FFFFFF; }
+    </style>
+</head>
+<body class="bg-brand-light flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-brand-white/80 backdrop-blur-md shadow-sm w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-center h-20 text-center">
+                <a href="#" class="text-base md:text-xl font-bold text-brand-dark">Dr. Victor Hugo da Veiga Jardim <span class="font-light text-xs md:text-base block sm:inline">| Geriatria & Cuidados Paliativos</span></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center">
+        <div class="text-center max-w-2xl mx-auto px-6 py-16">
+            <svg class="mx-auto h-16 w-16 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <h1 class="mt-6 text-4xl md:text-5xl font-bold text-brand-dark leading-tight">Seu primeiro passo foi dado com sucesso!</h1>
+            <p class="mt-4 text-lg text-gray-700">Recebemos suas informações e nossa equipe já está analisando os detalhes. Você deu o passo mais importante para garantir um cuidado digno e tranquilo para sua família.</p>
+            <p class="mt-8 font-semibold text-brand-dark">O próximo e último passo é escolher o melhor horário para a sua avaliação inicial.</p>
+            <div class="mt-8">
+                <a id="whatsapp-button" href="https://wa.me/5541988630813" target="_blank" class="bg-brand-accent text-white font-semibold px-10 py-5 rounded-lg shadow-lg hover:bg-brand-accent-dark transition-transform transform hover:scale-105 duration-300 inline-block text-lg">
+                    Agendar via WhatsApp
+                </a>
+            </div>
+             <p class="mt-6 text-sm text-gray-600">Se preferir, nossa equipe entrará em contato em breve pelo telefone ou WhatsApp informado para confirmar os detalhes e auxiliar no agendamento.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-gray-300 py-8 w-full">
+        <div class="container mx-auto px-6 lg:px-8 text-center">
+            <p class="text-sm">© 2025 Dr. Victor Hugo da Veiga Jardim | Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const whatsappButton = document.getElementById('whatsapp-button');
+            if(whatsappButton) {
+                whatsappButton.addEventListener('click', function() {
+                    // Fire the "Contact" event when the WhatsApp button is clicked.
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Contact');
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
+
