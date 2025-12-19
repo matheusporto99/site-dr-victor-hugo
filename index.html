@@ -1,581 +1,445 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Victor Hugo da Veiga Jardim | Geriatria & Cuidados Paliativos</title>
-    
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '735396036160586');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=735396036160586&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #e4e8e9; /* New background */
-            color: #101b15; /* New default text color */
-        }
-        /* New custom colors based on user's choice */
-        .text-brand-dark { color: #101b15; }
-        .bg-brand-dark { background-color: #101b15; }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Atendimento médico dedicado à saúde do idoso em Goiânia. Agendamento direto pelo WhatsApp." />
+  <title>Dr. Victor Hugo | Saúde do Idoso | Goiânia</title>
 
-        .text-brand-accent { color: #5c7266; }
-        .bg-brand-accent { background-color: #5c7266; }
-        .hover\:bg-brand-accent-dark:hover { background-color: #4a5d53; } /* Darker green for hover */
-        .border-brand-accent { border-color: #5c7266; }
-        .ring-brand-accent:focus { --tw-ring-color: #5c7266; }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        .bg-brand-light { background-color: #e4e8e9; }
-        .bg-brand-white { background-color: #FFFFFF; }
-        .bg-brand-section { background-color: #f0f2f2; } /* A slightly different shade for section backgrounds */
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "system-ui", "sans-serif"],
+            display: ["Montserrat", "system-ui", "sans-serif"],
+          },
+          colors: {
+            brandDark: "#1b1411",
+            brandGreen: "#2f4a3b",
+            brandSand: "#d8c18e",
+            brandMuted: "#7e7c73",
+            brandCard: "#7d8074",
+            ctaGreen: "#7CDB2A",
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(0,0,0,.18)"
+          }
+        }
+      }
+    }
+  </script>
 
+  <style>
+    html { scroll-behavior: smooth; }
+    .nav-blur { backdrop-filter: blur(10px); }
 
-        /* Animation for fade-in on scroll */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Accordion styles */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        /* Testimonial slider styles */
-        .testimonial-slide {
-            display: none;
-            transition: opacity 0.5s ease-in-out;
-        }
-        .testimonial-slide.active {
-            display: block;
-        }
-        /* Loading spinner */
-        .loader {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top: 4px solid #FFFFFF;
-            width: 24px;
-            height: 24px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Evita “zoom estranho” em alguns navegadores */
+    .hero-img {
+      transform: translateZ(0);
+      will-change: transform;
+    }
+  </style>
 </head>
-<body class="bg-brand-light">
 
-    <!-- 0. Navigation Bar (Fixed) -->
-    <header id="navbar" class="bg-brand-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0">
-                    <a href="#" class="text-base md:text-xl font-bold text-brand-dark">Dr. Victor Hugo da Veiga Jardim <span class="font-light text-xs md:text-base block sm:inline">| Geriatria & Cuidados Paliativos</span></a>
-                </div>
-                <div class="hidden md:block">
-                     <a href="https://form.respondi.app/EMGEPXpx" target="_blank" class="bg-brand-accent text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-brand-accent-dark transition-colors duration-300 text-sm">Avaliar Meu Caso Agora</a>
-                </div>
-                <div class="-mr-2 flex md:hidden">
-                     <a href="https://form.respondi.app/EMGEPXpx" target="_blank" class="bg-brand-accent text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-brand-accent-dark transition-colors duration-300 text-xs">Avaliar Meu Caso</a>
-                </div>
-            </div>
+<body class="bg-white text-gray-900 font-sans">
+
+  <!-- Config -->
+  <script>
+    const WHATSAPP_NUMBER = "554188630813";
+    const WHATSAPP_TEXT = encodeURIComponent("Olá! Vim pelo site do Dr. Victor Hugo e quero agendar uma consulta. Quais horários disponíveis em Goiânia?");
+    const WA_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_TEXT}`;
+  </script>
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-brandDark/70 nav-blur border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="h-16 flex items-center justify-between">
+        <a href="#inicio" class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full border border-brandSand/50 flex items-center justify-center">
+            <span class="text-brandSand font-display font-semibold tracking-wide">VH</span>
+          </div>
+          <div class="leading-tight">
+            <p class="text-white font-display font-semibold text-sm">Dr. Victor Hugo</p>
+            <p class="text-white/70 text-xs">Saúde do Idoso • Goiânia</p>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-7 text-sm text-white/80">
+          <a class="hover:text-white transition" href="#inicio">Página Inicial</a>
+          <a class="hover:text-white transition" href="#videos">Vídeos</a>
+          <a class="hover:text-white transition" href="#tratamentos">Atuação</a>
+          <a class="hover:text-white transition" href="#consultorio">Consultório</a>
+          <a class="hover:text-white transition" href="#depoimentos">Depoimentos</a>
+          <a class="hover:text-white transition" href="#contato">Contato</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a id="topCta"
+             href="#"
+             class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-md bg-ctaGreen text-black font-medium shadow-soft hover:brightness-95 transition">
+            Agendar Consulta
+          </a>
+          <button id="mobileMenuBtn" class="md:hidden text-white/90 p-2 rounded hover:bg-white/10 transition" aria-label="Abrir menu">
+            ☰
+          </button>
         </div>
-    </header>
+      </div>
 
-    <main class="pt-20">
-
-        <!-- 1. Hero (Hook Section) -->
-        <section class="relative bg-cover bg-center bg-no-repeat pt-16 pb-24 md:pt-24 md:pb-32" style="background-image: url('https://i.postimg.cc/W4qXnrfm/Design-sem-nome.jpg');">
-            <div class="absolute inset-0 bg-gradient-to-l from-brand-light/20 via-brand-light/90 to-brand-light"></div>
-            <div class="container mx-auto px-6 lg:px-8 relative z-10">
-                <div class="flex justify-end">
-                    <div class="w-full md:w-1/2 lg:w-3/5 text-center md:text-left">
-                        <span class="inline-block bg-green-100 text-brand-accent text-xs font-semibold px-3 py-1 rounded-full mb-4">Médico especialista em Geriatria e Cuidados Paliativos</span>
-                        <h1 class="text-4xl md:text-5xl font-bold text-brand-dark leading-tight mb-6">Cuidados que preservam a dignidade e trazem tranquilidade para você e sua família.</h1>
-                        <p class="text-lg text-gray-700 mb-8">Com atendimento médico exclusivo e humanizado, Dr. Victor Hugo da Veiga Jardim ajuda idosos a viverem com mais autonomia e qualidade, enquanto alivia o peso e a preocupação de seus familiares.</p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                            <a href="https://form.respondi.app/EMGEPXpx" target="_blank" class="bg-brand-accent text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-brand-accent-dark transition-transform transform hover:scale-105 duration-300">Avaliar Meu Caso Agora</a>
-                        </div>
-                        <div class="mt-12 text-sm text-gray-500 text-center md:text-left space-y-1">
-                            <p>Especialização em Geriatria e Cuidados Paliativos</p>
-                            <p>+1000 atendimentos transformados</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. Authority Section -->
-        <section id="authority" class="py-24 bg-brand-white fade-in-section">
-            <div class="container mx-auto px-6 lg:px-8">
-                <div class="grid md:grid-cols-5 gap-12 items-center">
-                    <div class="md:col-span-3">
-                        <h2 class="text-3xl font-bold text-brand-dark mb-4">Um especialista dedicado ao seu bem-estar</h2>
-                        <p class="text-lg text-gray-700 mb-6">Especialista em Geriatria e Cuidados Paliativos. Reconhecido em congressos nacionais, autor de publicações médicas e responsável por transformar a vida de centenas de pacientes e famílias.</p>
-                        <div class="flex flex-wrap gap-4 mt-8">
-                            <span class="flex items-center bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Geriatria Certificada</span>
-                            <span class="flex items-center bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Cuidados Paliativos</span>
-                            <span class="flex items-center bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Publicações Nacionais</span>
-                        </div>
-                    </div>
-                    <div class="md:col-span-2">
-                        <img src="https://i.postimg.cc/kXCDKj6w/Whats-App-Image-2025-08-26-at-09-25-26.jpg" alt="Retrato do Dr. Victor Hugo" class="rounded-xl shadow-xl w-full">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. Pain Section (Dual Personas) -->
-        <section class="py-24 bg-brand-section fade-in-section">
-            <div class="container mx-auto px-6 lg:px-8">
-                <div class="grid md:grid-cols-2 gap-8 md:gap-16">
-                    <div class="bg-brand-white p-8 rounded-xl shadow-lg text-center">
-                        <img src="https://i.postimg.cc/RVS5wT3B/Geriatria-Goiania-Saudacao-aos-idosos-780x470.jpg" alt="Idosos ativos" class="rounded-lg mb-6 mx-auto w-full h-64 object-cover">
-                        <h3 class="text-2xl font-bold text-brand-dark mb-3">Para os Idosos</h3>
-                        <p class="text-lg text-gray-700">“O maior medo é perder a independência e se tornar irrelevante.”</p>
-                    </div>
-                    <div class="bg-brand-white p-8 rounded-xl shadow-lg text-center">
-                        <img src="https://i.postimg.cc/bNmXg2b2/istockphoto-2212374816-612x612.jpg" alt="Cuidadores aliviados" class="rounded-lg mb-6 mx-auto w-full h-64 object-cover">
-                        <h3 class="text-2xl font-bold text-brand-dark mb-3">Para os Filhos Adultos</h3>
-                        <p class="text-lg text-gray-700">“A exaustão, a culpa e o medo constante de não estar fazendo o suficiente.”</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- NEW: AI Symptom Checker Section -->
-        <section id="symptom-checker" class="py-24 bg-brand-white fade-in-section">
-            <div class="container mx-auto px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-brand-dark">✨ Analisador de Sintomas com IA</h2>
-                    <p class="mt-4 text-lg text-gray-700 max-w-3xl mx-auto">Descreva os sintomas ou preocupações que você ou seu familiar está enfrentando para receber uma análise preliminar e recomendações. <span class="font-semibold">Este recurso não substitui uma consulta médica.</span></p>
-                </div>
-                <div class="max-w-3xl mx-auto bg-brand-section p-8 rounded-xl shadow-lg">
-                    <textarea id="symptom-input" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 ring-brand-accent focus:border-brand-accent transition" rows="6" placeholder="Ex: Meu pai, de 78 anos, tem tido esquecimentos frequentes, dificuldade para dormir e anda um pouco desanimado..."></textarea>
-                    <button id="analyze-symptoms-btn" class="mt-6 w-full bg-brand-accent text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-brand-accent-dark transition-transform transform hover:scale-105 duration-300 flex items-center justify-center">
-                        <span id="analyze-btn-text">Analisar Sintomas</span>
-                        <div id="analyze-loader" class="loader hidden ml-3"></div>
-                    </button>
-                    <div id="symptom-result" class="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg text-gray-700 hidden"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. Features Section -->
-        <section id="features" class="py-24 bg-brand-section fade-in-section">
-            <div class="container mx-auto px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-brand-dark">Como Funciona Nosso Processo</h2>
-                    <p class="mt-4 text-lg text-gray-700 max-w-3xl mx-auto">Um caminho de cuidado pensado em cada detalhe para garantir tranquilidade, segurança e qualidade de vida.</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Feature Card -->
-                    <div class="bg-brand-white p-8 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="bg-brand-accent text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">1</div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Avaliação Inicial Humanizada</h3>
-                        <p class="text-gray-600">Recepção acolhedora, consulta detalhada e análise da saúde e estilo de vida.</p>
-                    </div>
-                    <div class="bg-brand-white p-8 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="bg-brand-accent text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">2</div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Diagnóstico Personalizado</h3>
-                        <p class="text-gray-600">Identificação de riscos e problemas reais com base clínica.</p>
-                    </div>
-                    <div class="bg-brand-white p-8 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="bg-brand-accent text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">3</div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Plano de Cuidado Exclusivo</h3>
-                        <p class="text-gray-600">Singular, respeitando autonomia e trazendo paz à família.</p>
-                    </div>
-                    <div class="bg-brand-white p-8 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="bg-brand-accent text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">4</div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Acompanhamento Contínuo</h3>
-                        <p class="text-gray-600">Consultas presenciais, telemedicina ou visitas domiciliares.</p>
-                    </div>
-                    <div class="bg-brand-white p-8 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="bg-brand-accent text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">5</div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Relatórios para Familiares</h3>
-                        <p class="text-gray-600">Transparência total sobre cada etapa do cuidado.</p>
-                    </div>
-                    <div class="bg-brand-white p-8 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="bg-brand-accent text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">6</div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Disponibilidade Constante</h3>
-                        <p class="text-gray-600">Caso aceite o plano indicado, contato direto via WhatsApp para suporte e segurança.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. Why Choose Section -->
-        <section class="py-24 bg-brand-accent text-white fade-in-section">
-            <div class="container mx-auto px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold">Por Que Escolher Dr. Victor Hugo</h2>
-                </div>
-                <div class="flex flex-col items-center gap-y-12">
-                    <!-- Top Row -->
-                    <div class="flex flex-col md:flex-row justify-center gap-8 md:gap-16 lg:gap-24">
-                        <div class="flex flex-col items-center text-center max-w-[200px]">
-                            <div class="bg-white/10 p-4 rounded-full mb-4"><svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></div>
-                            <h3 class="font-semibold">Atendimento Exclusivo e Humanizado</h3>
-                        </div>
-                        <div class="flex flex-col items-center text-center max-w-[200px]">
-                            <div class="bg-white/10 p-4 rounded-full mb-4"><svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg></div>
-                            <h3 class="font-semibold">Planos de Cuidado Individualizados</h3>
-                        </div>
-                        <div class="flex flex-col items-center text-center max-w-[200px]">
-                            <div class="bg-white/10 p-4 rounded-full mb-4"><svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg></div>
-                            <h3 class="font-semibold">Especialização Reconhecida</h3>
-                        </div>
-                    </div>
-                    <!-- Bottom Row -->
-                    <div class="flex flex-col md:flex-row justify-center gap-8 md:gap-16 lg:gap-24">
-                        <div class="flex flex-col items-center text-center max-w-[200px]">
-                            <div class="bg-white/10 p-4 rounded-full mb-4"><svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V7a2 2 0 012-2h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 01.293.707V8z"></path></svg></div>
-                            <h3 class="font-semibold">Comunicação Transparente</h3>
-                        </div>
-                        <div class="flex flex-col items-center text-center max-w-[200px]">
-                            <div class="bg-white/10 p-4 rounded-full mb-4"><svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-                            <h3 class="font-semibold">Suporte Contínuo</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. Testimonials Section -->
-        <section id="testimonials" class="py-24 bg-brand-white fade-in-section">
-            <div class="container mx-auto px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-brand-dark">Histórias Reais que Inspiram</h2>
-                    <p class="mt-4 text-lg text-gray-700 max-w-3xl mx-auto">Relatos de famílias que encontraram paz e qualidade de vida através de um cuidado humano e especializado.</p>
-                </div>
-                <div class="relative max-w-3xl mx-auto">
-                    <div id="testimonial-container" class="overflow-hidden">
-                        <!-- Testimonial 1 -->
-                        <div class="testimonial-slide active">
-                            <div class="bg-brand-section p-8 rounded-xl shadow-lg text-center">
-                                <p class="text-lg text-gray-700 italic mb-6">“Nos disseram que meu pai teria 4 meses. Com o acompanhamento, viveu quase o triplo do tempo — com dignidade e momentos de qualidade.”</p>
-                                <p class="font-bold text-brand-dark">- Filha (pai com câncer de cólon)</p>
-                                <p class="mt-4 text-xs text-gray-500">*Em respeito às normas do CFM, a identidade dos pacientes é preservada.</p>
-                            </div>
-                        </div>
-                        <!-- Testimonial 2 -->
-                        <div class="testimonial-slide">
-                            <div class="bg-brand-section p-8 rounded-xl shadow-lg text-center">
-                                <p class="text-lg text-gray-700 italic mb-6">“Meu marido voltou a praticar hobbies. Foram memórias preciosas graças ao cuidado humano do Dr. Victor.”</p>
-                                <p class="font-bold text-brand-dark">- Esposa (marido com câncer de testículo)</p>
-                                <p class="mt-4 text-xs text-gray-500">*Em respeito às normas do CFM, a identidade dos pacientes é preservada.</p>
-                            </div>
-                        </div>
-                        <!-- Testimonial 3 -->
-                        <div class="testimonial-slide">
-                            <div class="bg-brand-section p-8 rounded-xl shadow-lg text-center">
-                                <p class="text-lg text-gray-700 italic mb-6">“Minha mãe voltou a cozinhar e sorrir. Pequenos gestos que se tornaram grandes memórias.”</p>
-                                <p class="font-bold text-brand-dark">- Filha (mãe com câncer de colo de útero)</p>
-                                <p class="mt-4 text-xs text-gray-500">*Em respeito às normas do CFM, a identidade dos pacientes é preservada.</p>
-                            </div>
-                        </div>
-                        <!-- Testimonial 4 -->
-                        <div class="testimonial-slide">
-                            <div class="bg-brand-section p-8 rounded-xl shadow-lg text-center">
-                                <p class="text-lg text-gray-700 italic mb-6">“Meu pai dorme melhor, está mais calmo e retomou atividades. Foi como ganhar um novo fôlego.”</p>
-                                <p class="font-bold text-brand-dark">- Filho (pai com problemas de memória)</p>
-                                <p class="mt-4 text-xs text-gray-500">*Em respeito às normas do CFM, a identidade dos pacientes é preservada.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button id="prev-testimonial" class="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-4 md:-translate-x-12 bg-brand-white p-2 rounded-full shadow-md hover:bg-gray-100 transition"><svg class="w-6 h-6 text-brand-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
-                    <button id="next-testimonial" class="absolute top-1/2 -translate-y-1/2 right-0 translate-x-4 md:translate-x-12 bg-brand-white p-2 rounded-full shadow-md hover:bg-gray-100 transition"><svg class="w-6 h-6 text-brand-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
-                </div>
-                <div class="mt-16 text-center">
-                    <a href="https://form.respondi.app/EMGEPXpx" target="_blank" class="bg-brand-accent text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-brand-accent-dark transition-transform transform hover:scale-105 duration-300 inline-block">Poucas vagas por semana</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. Emotional Reframe Block -->
-        <section class="py-20 bg-brand-section fade-in-section">
-            <div class="container mx-auto px-6 lg:px-8">
-                <div class="max-w-3xl mx-auto text-center">
-                    <p class="text-2xl md:text-3xl font-semibold text-brand-dark leading-relaxed">“Isto não é sobre custo. É sobre restaurar a dignidade, proteger sua família de noites sem dormir e devolver a você o papel de filho ou filha, em vez de cuidador exausto.”</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 8. FAQ Section -->
-        <section class="py-24 bg-brand-white fade-in-section">
-            <div class="container mx-auto px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-brand-dark">Dúvidas Frequentes</h2>
-                    <p class="mt-4 text-lg text-gray-700">Respostas para as perguntas mais comuns sobre o nosso cuidado.</p>
-                </div>
-                <div class="max-w-3xl mx-auto">
-                    <!-- NEW: AI Personalized FAQ -->
-                    <div class="bg-brand-section p-6 rounded-xl shadow-md mb-10">
-                         <h3 class="text-2xl font-bold text-brand-dark mb-4 text-center">✨ Tem outra dúvida?</h3>
-                         <p class="text-center text-gray-700 mb-4">Escreva sua pergunta e nossa IA irá gerar uma resposta com base nos conhecimentos do Dr. Victor.</p>
-                         <input type="text" id="faq-input" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 ring-brand-accent focus:border-brand-accent transition" placeholder="Ex: Como lidar com a recusa do meu pai em aceitar ajuda?">
-                         <button id="ask-faq-btn" class="mt-4 w-full bg-brand-dark text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-800 transition-colors duration-300 flex items-center justify-center">
-                            <span id="ask-btn-text">Perguntar à IA</span>
-                            <div id="ask-loader" class="loader hidden ml-3"></div>
-                         </button>
-                         <div id="faq-result" class="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg text-gray-700 hidden"></div>
-                    </div>
-
-                    <div class="space-y-4" id="faq-accordion">
-                        <!-- FAQ Item -->
-                        <div class="border-b border-gray-200 pb-4">
-                            <button class="accordion-header w-full flex justify-between items-center text-left text-lg font-semibold text-brand-dark py-2">
-                                <span>Cuidados paliativos são só para quem está morrendo?</span>
-                                <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content">
-                                <p class="pt-2 text-gray-600">Não. O objetivo é oferecer qualidade de vida em qualquer fase de uma doença que ameace a continuidade da vida, aliviando sintomas e oferecendo suporte emocional.</p>
-                            </div>
-                        </div>
-                        <div class="border-b border-gray-200 pb-4">
-                            <button class="accordion-header w-full flex justify-between items-center text-left text-lg font-semibold text-brand-dark py-2">
-                                <span>Por que atendimento particular se tenho plano?</span>
-                                <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content">
-                                <p class="pt-2 text-gray-600">O atendimento particular permite consultas exclusivas, com tempo ampliado para uma avaliação completa, além de um acompanhamento contínuo e mais próximo, focado 100% nas suas necessidades.</p>
-                            </div>
-                        </div>
-                        <div class="border-b border-gray-200 pb-4">
-                            <button class="accordion-header w-full flex justify-between items-center text-left text-lg font-semibold text-brand-dark py-2">
-                                <span>Como funciona o acompanhamento?</span>
-                                <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content">
-                                <p class="pt-2 text-gray-600">Iniciamos com uma avaliação completa para entender o quadro clínico e as necessidades individuais. A partir daí, criamos um plano personalizado, com consultas que podem ser presenciais, por telemedicina ou domiciliares.</p>
-                            </div>
-                        </div>
-                        <div class="border-b border-gray-200 pb-4">
-                            <button class="accordion-header w-full flex justify-between items-center text-left text-lg font-semibold text-brand-dark py-2">
-                                <span>Minha família terá acesso às informações?</span>
-                                <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content">
-                                <p class="pt-2 text-gray-600">Sim. A comunicação com a família é um pilar do nosso trabalho. Fornecemos relatórios periódicos e mantemos uma linha de comunicação direta para garantir que todos estejam informados e seguros.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 9. Final CTA Section -->
-        <section id="final-cta" class="bg-brand-dark py-24 fade-in-section">
-            <div class="container mx-auto px-6 lg:px-8 text-center">
-                <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-10">Porque dignidade e paz de espírito não podem esperar.</h2>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://form.respondi.app/EMGEPXpx" target="_blank" class="bg-brand-accent text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-brand-accent-dark transition-transform transform hover:scale-105 duration-300">As vagas de avaliação são limitadas. Garanta a sua agora.</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 10. Footer -->
-    <footer id="contact" class="bg-brand-dark text-gray-300 py-12">
-        <div class="container mx-auto px-6 lg:px-8 text-center">
-            <p class="font-bold text-lg text-white">Dr. Victor Hugo da Veiga Jardim | Geriatria & Cuidados Paliativos</p>
-            <p class="mt-2 text-sm">© 2025 | Todos os direitos reservados.</p>
-            <div class="mt-4 flex justify-center items-center">
-                <a href="https://www.instagram.com/dr.victorveigajardim" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-gray-300 hover:text-brand-accent transition-colors">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.343 2.525c.636-.247 1.363-.416 2.427-.465C9.793 2.013 10.147 2 12.315 2zm0 1.625c-2.372 0-2.69.01-3.633.056-1.003.046-1.588.208-2.028.388a3.284 3.284 0 00-1.18 1.18c-.18.44-.342 1.025-.388 2.028-.046.943-.056 1.261-.056 3.633s.01 2.69.056 3.633c.046 1.003.208 1.588.388 2.028a3.284 3.284 0 001.18 1.18c.44.18 1.025.342 2.028.388.943.046 1.261.056 3.633.056s2.69-.01 3.633-.056c1.003-.046 1.588-.208 2.028-.388a3.284 3.284 0 001.18-1.18c.18-.44.342-1.025.388-2.028.046-.943.056-1.261-.056-3.633s-.01-2.69-.056-3.633c-.046-1.003-.208-1.588-.388-2.028a3.284 3.284 0 00-1.18-1.18c-.44-.18-1.025-.342-2.028-.388-.943-.046-1.261-.056-3.633-.056zM12 6.875a5.125 5.125 0 100 10.25 5.125 5.125 0 000-10.25zM12 15a3 3 0 110-6 3 3 0 010 6zm6.375-10.125a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z" clip-rule="evenodd"></path></svg>
-                    <span class="ml-2">@dr.victorveigajardim</span>
-                </a>
-            </div>
+      <div id="mobileMenu" class="md:hidden hidden pb-4">
+        <div class="grid gap-2 text-sm text-white/85">
+          <a class="py-2 px-2 rounded hover:bg-white/10" href="#inicio">Página Inicial</a>
+          <a class="py-2 px-2 rounded hover:bg-white/10" href="#videos">Vídeos</a>
+          <a class="py-2 px-2 rounded hover:bg-white/10" href="#tratamentos">Atuação</a>
+          <a class="py-2 px-2 rounded hover:bg-white/10" href="#consultorio">Consultório</a>
+          <a class="py-2 px-2 rounded hover:bg-white/10" href="#depoimentos">Depoimentos</a>
+          <a class="py-2 px-2 rounded hover:bg-white/10" href="#contato">Contato</a>
+          <a id="mobileCta"
+             href="#"
+             class="mt-2 inline-flex items-center justify-center px-4 py-3 rounded-md bg-ctaGreen text-black font-medium shadow-soft">
+            Agendar Consulta
+          </a>
         </div>
-    </footer>
+      </div>
+    </div>
+  </header>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Navbar shrink on scroll
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('h-16');
-                    navbar.classList.remove('h-20');
-                } else {
-                    navbar.classList.add('h-20');
-                    navbar.classList.remove('h-16');
-                }
-            });
+  <!-- Hero -->
+  <main id="inicio" class="pt-16">
+    <section class="relative overflow-hidden bg-black min-h-[72vh] md:h-[680px]">
+      <div class="absolute inset-0">
+        <!-- HERO: sem overlay (pra não escurecer) e sem bordas (object-cover) -->
+        <img
+          src="https://i.postimg.cc/nhBNM3hz/hero-canva-desktop.png"
+          alt="Dr. Victor Hugo"
+          class="hero-img w-full h-full object-cover object-[70%_20%] md:object-[75%_20%]"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
 
-            // Fade-in sections on scroll
-            const sections = document.querySelectorAll('.fade-in-section');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            sections.forEach(section => observer.observe(section));
+      <div class="relative max-w-6xl mx-auto px-5 py-16 md:py-20 h-full">
+        <div class="grid md:grid-cols-2 gap-10 items-center h-full">
+          <div class="fade-in">
+            <p class="text-brandSand font-display tracking-wider text-sm mb-3">
+              Atendimento particular em Goiânia
+            </p>
 
-            // FAQ Accordion
-            const accordionHeaders = document.querySelectorAll('.accordion-header');
-            accordionHeaders.forEach(header => {
-                header.addEventListener('click', () => {
-                    const content = header.nextElementSibling;
-                    const icon = header.querySelector('svg');
+            <h1 class="font-display text-white text-4xl md:text-5xl leading-tight font-semibold">
+              Cuidado médico dedicado à Saúde do Idoso,
+              com tempo, clareza e acompanhamento de verdade
+            </h1>
 
-                    document.querySelectorAll('.accordion-content').forEach(item => {
-                        if (item !== content && item.style.maxHeight) {
-                            item.style.maxHeight = null;
-                            item.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
-                        }
-                    });
+            <p class="text-white/80 mt-5 max-w-xl leading-relaxed">
+              Avaliação completa, orientação prática para a família e um plano que respeita o que importa:
+              qualidade de vida, segurança e autonomia no dia a dia.
+            </p>
 
-                    if (content.style.maxHeight) {
-                        content.style.maxHeight = null;
-                        icon.classList.remove('rotate-180');
-                    } else {
-                        content.style.maxHeight = content.scrollHeight + 'px';
-                        icon.classList.add('rotate-180');
-                    }
-                });
-            });
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <a id="heroCta"
+                 href="#"
+                 class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-ctaGreen text-black font-medium shadow-soft hover:brightness-95 transition">
+                Agendar Consulta
+              </a>
+              <a href="#contato"
+                 class="inline-flex items-center justify-center px-6 py-3 rounded-md border border-white/20 text-white/90 hover:bg-white/10 transition">
+                Ver endereço e contato
+              </a>
+            </div>
 
-            // Testimonial Slider
-            const slides = document.querySelectorAll('.testimonial-slide');
-            const prevButton = document.getElementById('prev-testimonial');
-            const nextButton = document.getElementById('next-testimonial');
-            let currentSlide = 0;
+            <p class="text-white/60 mt-4 text-sm">
+              Atendimento particular • Agendamento direto pelo WhatsApp
+            </p>
+          </div>
 
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    slide.classList.remove('active');
-                    if (i === index) {
-                        slide.classList.add('active');
-                    }
-                });
-            }
+          <div class="hidden md:block fade-in">
+            <div class="bg-white/10 border border-white/10 rounded-xl p-6 shadow-soft">
+              <p class="text-white font-display text-lg font-medium">O que você recebe</p>
+              <ul class="mt-4 space-y-3 text-white/80 text-sm">
+                <li>• Avaliação clínica organizada, sem pressa</li>
+                <li>• Orientação para medicações com segurança</li>
+                <li>• Plano simples e aplicável em casa</li>
+                <li>• Acompanhamento e retorno quando necessário</li>
+              </ul>
+              <div class="mt-6 flex items-center gap-3">
+                <span class="inline-flex w-2.5 h-2.5 rounded-full bg-ctaGreen"></span>
+                <span class="text-white/70 text-sm">Goiânia • Setor Sul</span>
+              </div>
+            </div>
+          </div>
 
-            prevButton.addEventListener('click', () => {
-                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                showSlide(currentSlide);
-            });
+        </div>
+      </div>
+    </section>
 
-            nextButton.addEventListener('click', () => {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            });
-            
-            setInterval(() => {
-                nextButton.click();
-            }, 7000);
+    <!-- Vídeos -->
+    <section id="videos" class="bg-brandGreen py-14">
+      <div class="max-w-6xl mx-auto px-5">
+        <h2 class="text-white font-display text-4xl font-light text-center">Vídeos</h2>
 
-            // --- NEW Gemini API Functionality ---
+        <div class="mt-10 grid md:grid-cols-2 gap-8">
+          <div class="rounded-lg overflow-hidden shadow-soft bg-black/20 border border-white/10">
+            <div class="aspect-video w-full">
+              <iframe
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/jgEynjHcDfY"
+                title="Vídeo - Dr. Victor Hugo"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="px-4 py-4 text-white/80 text-sm flex items-center justify-between gap-3">
+              <span>Assista e entenda a abordagem</span>
+              <a class="text-white underline underline-offset-4 hover:text-white/90"
+                 href="https://youtube.com/shorts/jgEynjHcDfY" target="_blank" rel="noopener">Abrir no YouTube</a>
+            </div>
+          </div>
 
-            const callGeminiAPI = async (prompt, button, loader, buttonText, resultContainer) => {
-                button.disabled = true;
-                loader.classList.remove('hidden');
-                buttonText.textContent = 'Analisando...';
-                resultContainer.classList.add('hidden');
+          <div class="rounded-lg overflow-hidden shadow-soft bg-black/20 border border-white/10">
+            <div class="aspect-video w-full">
+              <iframe
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/NyifspuB1Oo"
+                title="Vídeo - Dr. Victor Hugo"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="px-4 py-4 text-white/80 text-sm flex items-center justify-between gap-3">
+              <span>Explicação direta, sem enrolação</span>
+              <a class="text-white underline underline-offset-4 hover:text-white/90"
+                 href="https://youtu.be/NyifspuB1Oo" target="_blank" rel="noopener">Abrir no YouTube</a>
+            </div>
+          </div>
+        </div>
 
-                try {
-                    let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
-                    const payload = { contents: chatHistory };
-                    const apiKey = "AIzaSyC-Dw9UG3j7xmhd4sKL_4x_GTjcOzEdo3c"; // API key inserted here
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+        <div class="mt-10 text-center">
+          <a id="videosCta"
+             href="#"
+             class="inline-flex items-center justify-center px-10 py-3 rounded-md bg-ctaGreen text-black font-medium shadow-soft hover:brightness-95 transition">
+            Agendar Consulta
+          </a>
+        </div>
+      </div>
+    </section>
 
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
+    <!-- Atuação -->
+    <section id="tratamentos" class="bg-brandSand py-14">
+      <div class="max-w-6xl mx-auto px-5">
+        <h2 class="text-white font-display text-5xl font-light text-center drop-shadow">Atuação</h2>
 
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
+        <div class="mt-10 bg-brandCard/80 rounded-xl p-8 shadow-soft border border-black/10">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
 
-                    const result = await response.json();
-                    
-                    if (result.candidates && result.candidates.length > 0 &&
-                        result.candidates[0].content && result.candidates[0].content.parts &&
-                        result.candidates[0].content.parts.length > 0) {
-                        const text = result.candidates[0].content.parts[0].text;
-                        // Basic formatting for better readability
-                        resultContainer.innerHTML = text.replace(/\n/g, '<br>');
-                        resultContainer.classList.remove('hidden');
-                    } else {
-                        throw new Error("Resposta da API inválida.");
-                    }
+            <div class="bg-white/10 rounded-lg overflow-hidden border border-white/10">
+              <img class="h-52 w-full object-cover" src="img/atuacao-avaliacao-idoso.webp" alt="Avaliação do Idoso" loading="lazy" decoding="async">
+              <div class="bg-black/50 px-4 py-3 text-white text-sm text-center">Avaliação do Idoso</div>
+            </div>
 
-                } catch (error) {
-                    console.error("Error calling Gemini API:", error);
-                    resultContainer.innerHTML = "Desculpe, ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.";
-                    resultContainer.classList.remove('hidden');
-                } finally {
-                    button.disabled = false;
-                    loader.classList.add('hidden');
-                    buttonText.textContent = button.id === 'analyze-symptoms-btn' ? 'Analisar Sintomas' : 'Perguntar à IA';
-                }
-            };
+            <div class="bg-white/10 rounded-lg overflow-hidden border border-white/10">
+              <img class="h-52 w-full object-cover" src="img/atuacao-memoria-cognicao.webp" alt="Memória e Cognição" loading="lazy" decoding="async">
+              <div class="bg-black/50 px-4 py-3 text-white text-sm text-center">Memória e Cognição</div>
+            </div>
 
-            // Symptom Checker Logic
-            const analyzeBtn = document.getElementById('analyze-symptoms-btn');
-            const symptomInput = document.getElementById('symptom-input');
-            const symptomResult = document.getElementById('symptom-result');
-            const analyzeLoader = document.getElementById('analyze-loader');
-            const analyzeBtnText = document.getElementById('analyze-btn-text');
+            <div class="bg-white/10 rounded-lg overflow-hidden border border-white/10">
+              <img class="h-52 w-full object-cover" src="img/atuacao-sono-humor-energia.webp" alt="Sono, Humor e Energia" loading="lazy" decoding="async">
+              <div class="bg-black/50 px-4 py-3 text-white text-sm text-center">Sono, Humor e Energia</div>
+            </div>
 
-            analyzeBtn.addEventListener('click', () => {
-                const symptoms = symptomInput.value;
-                if (symptoms.trim() === '') {
-                    symptomResult.textContent = 'Por favor, descreva os sintomas antes de analisar.';
-                    symptomResult.classList.remove('hidden');
-                    return;
-                }
-                const prompt = `Aja como um assistente de IA do Dr. Victor Hugo, especialista em geriatria. Um usuário descreveu os seguintes sintomas: "${symptoms}". Forneça uma análise preliminar curta e objetiva, em no máximo 3 frases. Liste 2 a 3 possíveis áreas de preocupação de forma geral, sem dar diagnóstico. Finalize a resposta EXATAMENTE com a frase: 'Para uma análise completa e segura, o ideal é agendar uma avaliação. Clique no botão para garantir sua vaga.'`;
-                callGeminiAPI(prompt, analyzeBtn, analyzeLoader, analyzeBtnText, symptomResult);
-            });
+            <div class="bg-white/10 rounded-lg overflow-hidden border border-white/10">
+              <img class="h-52 w-full object-cover" src="img/atuacao-dor-mobilidade.webp" alt="Dor e Mobilidade" loading="lazy" decoding="async">
+              <div class="bg-black/50 px-4 py-3 text-white text-sm text-center">Dor e Mobilidade</div>
+            </div>
 
-            // Personalized FAQ Logic
-            const askBtn = document.getElementById('ask-faq-btn');
-            const faqInput = document.getElementById('faq-input');
-            const faqResult = document.getElementById('faq-result');
-            const askLoader = document.getElementById('ask-loader');
-            const askBtnText = document.getElementById('ask-btn-text');
+            <div class="bg-white/10 rounded-lg overflow-hidden border border-white/10">
+              <img class="h-52 w-full object-cover" src="img/atuacao-uso-seguro-medicacoes.webp" alt="Uso Seguro de Medicações" loading="lazy" decoding="async">
+              <div class="bg-black/50 px-4 py-3 text-white text-sm text-center">Uso Seguro de Medicações</div>
+            </div>
 
-            askBtn.addEventListener('click', () => {
-                const question = faqInput.value;
-                 if (question.trim() === '') {
-                    faqResult.textContent = 'Por favor, escreva sua pergunta.';
-                    faqResult.classList.remove('hidden');
-                    return;
-                }
-                const prompt = `Aja como um assistente de IA do Dr. Victor Hugo, especialista em geriatria. Responda à seguinte pergunta de forma curta e objetiva, em no máximo 3 frases: "${question}". Finalize a resposta EXATAMENTE com a frase: 'Para uma análise completa e segura, o ideal é agendar uma avaliação. Clique no botão para garantir sua vaga.'`;
-                callGeminiAPI(prompt, askBtn, askLoader, askBtnText, faqResult);
-            });
-        });
-    </script>
+            <div class="bg-white/10 rounded-lg overflow-hidden border border-white/10">
+              <img class="h-52 w-full object-cover" src="img/atuacao-orientacao-familia.webp" alt="Orientação para Família" loading="lazy" decoding="async">
+              <div class="bg-black/50 px-4 py-3 text-white text-sm text-center">Orientação para Família</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consultório -->
+    <section id="consultorio" class="bg-brandSand py-14">
+      <div class="max-w-6xl mx-auto px-5">
+        <h2 class="text-brandGreen font-display text-5xl font-light text-center">Consultório</h2>
+
+        <div class="mt-10 grid md:grid-cols-4 gap-5">
+          <img class="rounded-lg shadow-soft object-cover h-72 w-full" src="img/consultorio-01.webp" alt="Fachada da clínica" loading="lazy" decoding="async">
+          <img class="rounded-lg shadow-soft object-cover h-72 w-full" src="img/consultorio-02.webp" alt="Sala de espera" loading="lazy" decoding="async">
+          <img class="rounded-lg shadow-soft object-cover h-72 w-full" src="img/consultorio-03.webp" alt="Ambiente da clínica" loading="lazy" decoding="async">
+          <img class="rounded-lg shadow-soft object-cover h-72 w-full" src="img/consultorio-04.webp" alt="Recepção" loading="lazy" decoding="async">
+        </div>
+
+        <div class="mt-5 grid md:grid-cols-4 gap-5">
+          <img class="rounded-lg shadow-soft object-cover h-72 w-full md:col-span-2" src="img/consultorio-05.webp" alt="Consultório" loading="lazy" decoding="async">
+          <div class="md:col-span-2 bg-white/40 border border-black/10 rounded-lg p-6 shadow-soft">
+            <p class="text-brandGreen font-display text-xl">Ambiente pensado para acolher</p>
+            <p class="text-brandGreen/90 mt-2 text-sm leading-relaxed">
+              Um espaço confortável, organizado e discreto, para uma consulta sem pressa e com atenção real.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="bg-brandGreen py-14">
+      <div class="max-w-6xl mx-auto px-5">
+        <h2 class="text-white font-display text-5xl font-light text-center">Depoimentos</h2>
+
+        <div class="mt-10 grid md:grid-cols-3 gap-6">
+          <div class="bg-white/10 border border-white/10 rounded-xl p-6 shadow-soft">
+            <p class="text-white font-medium">Maísa</p>
+            <p class="mt-3 text-sm text-white/80 leading-relaxed">
+              Atendimento muito cuidadoso. Saí com um plano claro e com segurança do que fazer em casa.
+              Foi a primeira vez que senti que alguém realmente organizou tudo.
+            </p>
+          </div>
+
+          <div class="bg-white/10 border border-white/10 rounded-xl p-6 shadow-soft">
+            <p class="text-white font-medium">Beatriz</p>
+            <p class="mt-3 text-sm text-white/80 leading-relaxed">
+              Eu tinha muitas dúvidas sobre remédios e rotina. A consulta foi tranquila, sem pressa,
+              e o acompanhamento fez diferença na evolução.
+            </p>
+          </div>
+
+          <div class="bg-white/10 border border-white/10 rounded-xl p-6 shadow-soft">
+            <p class="text-white font-medium">Danielle</p>
+            <p class="mt-3 text-sm text-white/80 leading-relaxed">
+              Minha família precisava de orientação prática. Foi direto, humano e com muita clareza.
+              Recomendo para quem quer cuidado de verdade.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 text-center">
+          <a id="depoCta"
+             href="#"
+             class="inline-flex items-center justify-center px-10 py-3 rounded-md bg-ctaGreen text-black font-medium shadow-soft hover:brightness-95 transition">
+            Agendar Consulta
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="bg-brandSand py-14">
+      <div class="max-w-6xl mx-auto px-5">
+        <h2 class="text-brandGreen font-display text-5xl font-light text-center">Contato</h2>
+
+        <div class="mt-10 grid lg:grid-cols-2 gap-8 items-start">
+          <div class="bg-white/40 rounded-xl p-7 shadow-soft border border-black/10">
+            <p class="text-brandGreen font-display text-xl">Agende pelo WhatsApp</p>
+            <p class="text-brandGreen/90 mt-2 text-sm leading-relaxed">
+              Atendimento particular. Clique no botão e fale direto com a equipe para horários disponíveis.
+            </p>
+
+            <div class="mt-6 space-y-3 text-brandGreen text-sm">
+              <p><span class="font-semibold">Endereço:</span> R. 115, 2100 - St. Sul, Goiânia - GO, 74085-325</p>
+              <p><span class="font-semibold">Telefone:</span> (41) 8863-0813</p>
+              <p><span class="font-semibold">Atendimento:</span> Segunda a Sexta, 08:00 às 18:00</p>
+            </div>
+
+            <div class="mt-7 flex flex-col sm:flex-row gap-3">
+              <a id="contactCta"
+                 href="#"
+                 class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-ctaGreen text-black font-medium shadow-soft hover:brightness-95 transition">
+                Falar no WhatsApp
+              </a>
+              <a href="#inicio"
+                 class="inline-flex items-center justify-center px-6 py-3 rounded-md border border-brandGreen/30 text-brandGreen hover:bg-black/5 transition">
+                Voltar ao topo
+              </a>
+            </div>
+
+            <p class="text-brandGreen/80 mt-4 text-xs">
+              Importante: comunicação objetiva e segura.
+            </p>
+          </div>
+
+          <div class="bg-white/30 rounded-xl p-3 shadow-soft border border-black/10">
+            <iframe
+              src="https://www.google.com/maps?q=R.%20115%2C%202100%20-%20St.%20Sul%2C%20Goi%C3%A2nia%20-%20GO&output=embed"
+              class="w-full h-[420px] rounded-lg"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mapa - Consultório">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-brandDark text-white py-10 text-center">
+    <p class="font-display font-semibold">Dr. Victor Hugo</p>
+    <p class="text-sm text-white/70 mt-1">Médico dedicado à Saúde do Idoso • Goiânia</p>
+  </footer>
+
+  <a id="waFloat"
+     href="#"
+     aria-label="WhatsApp"
+     class="fixed bottom-5 right-5 w-14 h-14 rounded-full bg-[#25D366] shadow-soft flex items-center justify-center hover:brightness-95 transition z-50">
+    <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path fill="white" d="M19.11 17.53c-.27-.14-1.6-.8-1.85-.9-.25-.1-.43-.14-.61.14-.18.27-.7.9-.85 1.08-.16.18-.31.2-.58.07-.27-.14-1.12-.41-2.13-1.3-.79-.7-1.32-1.56-1.47-1.82-.15-.27-.02-.41.11-.54.12-.12.27-.31.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.48-.84-2.03-.22-.53-.44-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3 0 1.36.99 2.67 1.13 2.86.14.18 1.95 2.98 4.72 4.18.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.82-1.27.22-.63.22-1.16.16-1.27-.07-.11-.25-.18-.52-.32z"/>
+      <path fill="white" d="M16.02 3C8.83 3 3 8.7 3 15.73c0 2.2.6 4.25 1.64 6.04L3.6 29l7.46-1.96c1.72.94 3.7 1.48 5.96 1.48 7.19 0 13.02-5.7 13.02-12.73C30.04 8.7 24.21 3 16.02 3zm0 23.04c-2.04 0-3.9-.58-5.5-1.56l-.4-.25-4.43 1.17 1.18-4.19-.27-.41a10.9 10.9 0 0 1-1.74-5.77c0-6.04 5.01-10.95 11.16-10.95 6.15 0 11.16 4.91 11.16 10.95 0 6.04-5.01 10.95-11.16 10.95z"/>
+    </svg>
+  </a>
+
+  <script>
+    document.getElementById("topCta").href = WA_LINK;
+    document.getElementById("heroCta").href = WA_LINK;
+    document.getElementById("videosCta").href = WA_LINK;
+    document.getElementById("depoCta").href = WA_LINK;
+    document.getElementById("contactCta").href = WA_LINK;
+    document.getElementById("mobileCta").href = WA_LINK;
+    document.getElementById("waFloat").href = WA_LINK;
+
+    const btn = document.getElementById("mobileMenuBtn");
+    const menu = document.getElementById("mobileMenu");
+    btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+    menu.querySelectorAll("a[href^='#']").forEach(a => {
+      a.addEventListener("click", () => menu.classList.add("hidden"));
+    });
+
+    const els = document.querySelectorAll(".fade-in");
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.15 });
+    els.forEach(el => obs.observe(el));
+  </script>
+
 </body>
 </html>
-
