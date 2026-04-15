@@ -1,461 +1,488 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth motion-reduce:scroll-auto">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-MH6MCPKR');</script>
-  <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Victor Hugo - Saúde do Idoso</title>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MH6MCPKR');</script>
+    <!-- End Google Tag Manager -->
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Atendimento médico dedicado à saúde do idoso em Goiânia. Agendamento direto pelo WhatsApp." />
-  <title>Dr. Victor Hugo | Saúde do Idoso | Goiânia</title>
+    <!-- Google Ads (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17814734788"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17814734788');
+      gtag('config', 'G-WYZ3SE0TH4');
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind (CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Inter", "system-ui", "sans-serif"],
-            display: ["Montserrat", "system-ui", "sans-serif"],
-          },
-          colors: {
-            brandDark: "#1b1411",
-            brandGreen: "#2f4a3b",
-            brandSand: "#d8c18e",
-            brandMuted: "#7e7c73",
-            brandCard: "#7d8074",
-            ctaGreen: "#7CDB2A",
-          },
-          boxShadow: {
-            soft: "0 10px 30px rgba(0,0,0,.18)"
-          }
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0B132B',
+                            800: '#1C2541',
+                            700: '#3A506B',
+                        },
+                        gold: {
+                            400: '#E5C05C',
+                            500: '#D4AF37',
+                            600: '#B5952F',
+                        },
+                        sand: {
+                            50: '#FDFBF7',
+                            100: '#F7F3E8',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
+    </script>
+    <style>
+        /* Custom scrollbar for an elegant feel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B5952F; }
 
-  <style>
-    html { scroll-behavior: smooth; }
-    .nav-blur { backdrop-filter: blur(10px); }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-    .fade-in.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Evita “zoom estranho” em alguns navegadores */
-    .hero-img {
-      transform: translateZ(0);
-      will-change: transform;
-    }
-  </style>
+        /* Acessibilidade: Respeitar preferência de movimento reduzido */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
 </head>
+<body class="bg-sand-50 text-navy-900 font-sans antialiased selection:bg-gold-500 selection:text-white overflow-x-hidden">
 
-<body class="bg-white text-gray-900 font-sans">
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MH6MCPKR"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MH6MCPKR"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-  <!-- Config -->
-  <script>
-    const WHATSAPP_NUMBER = "554188630813";
-    const WHATSAPP_TEXT = encodeURIComponent("Olá! Vim pelo site do Dr. Victor Hugo e quero agendar uma consulta. Quais horários disponíveis em Goiânia?");
-    const WA_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_TEXT}`;
-  </script>
-
-  <!-- Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-brandDark/70 nav-blur border-b border-white/10">
-    <div class="max-w-6xl mx-auto px-5">
-      <div class="h-16 flex items-center justify-between">
-        <a href="#inicio" class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full border border-brandSand/50 flex items-center justify-center">
-            <span class="text-brandSand font-display font-semibold tracking-wide">VH</span>
-          </div>
-          <div class="leading-tight">
-            <p class="text-white font-display font-semibold text-sm">Dr. Victor Hugo</p>
-            <p class="text-white/70 text-xs">Saúde do Idoso • Goiânia</p>
-          </div>
-        </a>
-
-        <nav class="hidden md:flex items-center gap-7 text-sm text-white/80">
-          <a class="hover:text-white transition" href="#inicio">Página Inicial</a>
-          <a class="hover:text-white transition" href="#videos">Vídeos</a>
-          <a class="hover:text-white transition" href="#tratamentos">Atuação</a>
-          <a class="hover:text-white transition" href="#consultorio">Consultório</a>
-          <a class="hover:text-white transition" href="#depoimentos">Depoimentos</a>
-          <a class="hover:text-white transition" href="#contato">Contato</a>
-        </nav>
-
-        <div class="flex items-center gap-3">
-          <a id="topCta"
-             href="#"
-             class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-md bg-ctaGreen text-black font-medium shadow-soft hover:brightness-95 transition">
-            Agendar Consulta
-          </a>
-          <button id="mobileMenuBtn" class="md:hidden text-white/90 p-2 rounded hover:bg-white/10 transition" aria-label="Abrir menu">
-            ☰
-          </button>
-        </div>
-      </div>
-
-      <div id="mobileMenu" class="md:hidden hidden pb-4">
-        <div class="grid gap-2 text-sm text-white/85">
-          <a class="py-2 px-2 rounded hover:bg-white/10" href="#inicio">Página Inicial</a>
-          <a class="py-2 px-2 rounded hover:bg-white/10" href="#videos">Vídeos</a>
-          <a class="py-2 px-2 rounded hover:bg-white/10" href="#tratamentos">Atuação</a>
-          <a class="py-2 px-2 rounded hover:bg-white/10" href="#consultorio">Consultório</a>
-          <a class="py-2 px-2 rounded hover:bg-white/10" href="#depoimentos">Depoimentos</a>
-          <a class="py-2 px-2 rounded hover:bg-white/10" href="#contato">Contato</a>
-          <a id="mobileCta"
-             href="#"
-             class="mt-2 inline-flex items-center justify-center px-4 py-3 rounded-md bg-ctaGreen text-black font-medium shadow-soft">
-            Agendar Consulta
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <main id="inicio" class="pt-16">
-    <section class="relative overflow-hidden bg-black min-h-[72vh] md:h-[680px]">
-      <div class="absolute inset-0 bg-black">
-        <!-- HERO: sem overlay (pra não escurecer). scale levinho pra matar qualquer "borda" de 1px -->
-        <img
-          src="https://i.postimg.cc/nhBNM3hz/hero-canva-desktop.png"
-          alt="Dr. Victor Hugo"
-          class="hero-img w-full h-full object-cover object-[70%_20%] md:object-[75%_20%] scale-[1.02]"
-          loading="eager"
-          decoding="async"
-        />
-      </div>
-
-      <div class="relative max-w-6xl mx-auto px-5 py-16 md:py-20 h-full">
-        <!-- items-end: faz o card encostar na linha do botão -->
-        <div class="grid md:grid-cols-2 gap-10 md:gap-12 h-full md:items-end">
-          <!-- Coluna esquerda -->
-          <div class="fade-in">
-            <p class="text-brandSand font-display tracking-wider text-sm mb-3">
-              Atendimento particular em Goiânia
-            </p>
-
-            <h1 class="font-display text-white text-4xl md:text-5xl leading-tight font-semibold">
-              Cuidado médico dedicado à Saúde do Idoso,
-              com tempo, clareza e acompanhamento de verdade
-            </h1>
-
-            <p class="text-white/85 mt-5 max-w-xl leading-relaxed">
-              Avaliação completa, orientação prática para a família e um plano que respeita o que importa:
-              qualidade de vida, segurança e autonomia no dia a dia.
-            </p>
-
-            <div class="mt-8 flex flex-col sm:flex-row gap-3">
-              <a id="heroCta"
-                 href="#"
-                 class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-ctaGreen text-black font-medium shadow-soft hover:brightness-95 transition">
-                Agendar Consulta
-              </a>
-              <a href="#contato"
-                 class="inline-flex items-center justify-center px-6 py-3 rounded-md border border-white/25 text-white hover:bg-white/10 transition">
-                Ver endereço e contato
-              </a>
+    <!-- Header / Navbar -->
+    <nav class="w-full bg-white/80 backdrop-blur-md fixed top-0 z-50 border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex flex-col">
+                <span class="text-xl md:text-2xl font-serif font-bold text-navy-900 tracking-wide">
+                    DR. VICTOR HUGO
+                </span>
+                <span class="text-[10px] md:text-xs font-sans text-gold-600 font-medium tracking-widest uppercase">
+                    Saúde do Idoso
+                </span>
             </div>
-          </div>
-
-          <!-- Coluna direita (Card) -->
-          <div class="hidden md:block fade-in md:self-end">
-            <!-- Card mais compacto + contraste forte -->
-            <div class="max-w-md ml-auto bg-black/55 border border-white/15 rounded-2xl p-7 shadow-soft backdrop-blur-sm">
-              <p class="text-white font-display text-xl font-semibold">O que você recebe</p>
-              <ul class="mt-4 space-y-2.5 text-white/90 text-sm">
-                <li>• Avaliação clínica organizada, sem pressa</li>
-                <li>• Orientação para medicações com segurança</li>
-                <li>• Plano simples e aplicável em casa</li>
-                <li>• Acompanhamento e retorno quando necessário</li>
-              </ul>
-              <div class="mt-6 flex items-center gap-3">
-                <span class="inline-flex w-2.5 h-2.5 rounded-full bg-ctaGreen"></span>
-                <span class="text-white/85 text-sm">Goiânia • Setor Sul</span>
-              </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <span class="text-sm text-gray-500 font-medium">CRM-GO 30046</span>
+                <a href="#agendamento" class="text-sm font-semibold text-navy-900 hover:text-gold-600 transition-colors focus:outline-none focus:ring-2 focus:ring-gold-500 focus:ring-offset-2 rounded-md px-2 py-1 cursor-pointer">Agendar Consulta Particular</a>
             </div>
-          </div>
         </div>
+    </nav>
 
-        <!-- Texto pequeno fora do fluxo (não mexe no alinhamento do card) -->
-        <p class="absolute left-5 bottom-6 text-white/65 text-sm">
-          Atendimento particular • Agendamento direto pelo WhatsApp
-        </p>
-      </div>
+    <!-- 1. QUALIFY (Hero Section) -->
+    <section class="pt-32 pb-20 lg:pt-40 lg:pb-28 px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            <!-- Copy -->
+            <div class="w-full lg:w-1/2 flex flex-col justify-center">
+                <!-- Trust Signals (Above Fold) -->
+                <div class="flex items-center space-x-2 mb-6">
+                    <div class="flex text-gold-500">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <span class="text-xs font-medium text-gray-600 tracking-wide uppercase">Atendimento Particular Exclusivo</span>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-6 text-navy-900">
+                    A vida não cabe em uma <span class="text-gold-600 italic">consulta de 15 minutos.</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-600 font-light mb-10 leading-relaxed">
+                    Atendimento particular exclusivo em Goiânia. Mais tempo, diagnóstico preciso e um plano de acompanhamento para evitar internações e <strong class="text-navy-900 font-medium">restaurar a qualidade de vida.</strong>
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center gap-4">
+                    <a href="#agendamento" class="w-full sm:w-auto bg-navy-900 hover:bg-navy-800 text-white font-medium text-base px-8 py-4 rounded-lg shadow-lg transition-all flex items-center justify-center space-x-2 group focus:outline-none focus:ring-2 focus:ring-gold-500 focus:ring-offset-2 focus:ring-offset-sand-50 cursor-pointer">
+                        <span>Agendar Consulta Particular</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Sub-Trust -->
+                <div class="mt-8 flex items-center gap-6 text-sm text-gray-500">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="home" class="w-4 h-4 text-gold-500"></i>
+                        <span>Consultório & Domicílio</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4 text-gold-500"></i>
+                        <span>Consultas de 1h a 1h30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image -->
+            <div class="w-full lg:w-1/2 relative">
+                <!-- Soft background element -->
+                <div class="absolute -inset-4 bg-sand-100 rounded-[2.5rem] transform rotate-3 -z-10"></div>
+                
+                <!-- AQUI ENTRA A FOTO DO HERO (A FOTO 4137 / MÃOS NO JOELHO) -->
+                <img src="4137.webp" alt="Dr. Victor Hugo - Atendimento Médico Humanizado" fetchpriority="high" class="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover object-top rounded-[2rem] shadow-2xl">
+            </div>
+        </div>
     </section>
 
-    <!-- Vídeos -->
-    <section id="videos" class="bg-brandGreen py-14">
-      <div class="max-w-6xl mx-auto px-5">
-        <h2 class="text-white font-display text-4xl font-light text-center">Vídeos</h2>
+    <!-- 2. UNDERSTAND (Dores) -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-navy-900 mb-4">Nós sabemos o que você tem enfrentado nos últimos meses...</h2>
+                <p class="text-gray-600 text-lg">Cuidar de quem amamos quando a saúde fragiliza é exaustivo. Você não precisa carregar esse peso sozinho.</p>
+            </div>
 
-        <div class="mt-10 grid md:grid-cols-2 gap-8">
-          <div class="rounded-lg overflow-hidden shadow-soft bg-black/20 border border-white/10">
-            <div class="aspect-video w-full">
-              <iframe
-                class="w-full h-full"
-                src="https://www.youtube.com/embed/jgEynjHcDfY"
-                title="Vídeo - Dr. Victor Hugo"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                loading="lazy">
-              </iframe>
+            <!-- Dores Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Dor 1 -->
+                <div class="bg-sand-50 p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm">
+                        <i data-lucide="activity" class="w-6 h-6 text-navy-900"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">O Ciclo de Internações</h3>
+                    <p class="text-gray-600 leading-relaxed">O vai e vem exaustivo do hospital que desgasta o idoso, interrompe a rotina da família e não resolve o problema pela raiz.</p>
+                </div>
+                <!-- Dor 2 -->
+                <div class="bg-sand-50 p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm">
+                        <i data-lucide="brain" class="w-6 h-6 text-navy-900"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">O Declínio Silencioso</h3>
+                    <p class="text-gray-600 leading-relaxed">O avanço de problemas de memória, a perda de massa muscular e o medo constante da perda da independência de quem você ama.</p>
+                </div>
+                <!-- Dor 3 -->
+                <div class="bg-sand-50 p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm">
+                        <i data-lucide="heart-crack" class="w-6 h-6 text-navy-900"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">O Diagnóstico Grave</h3>
+                    <p class="text-gray-600 leading-relaxed">A dor física e emocional de um câncer ou doença grave, muitas vezes tratada com frieza pela medicina tradicional, focada apenas na doença e não na pessoa.</p>
+                </div>
             </div>
-            <div class="px-4 py-4 text-white/80 text-sm flex items-center justify-between gap-3">
-              <span>Assista e entenda a abordagem</span>
-              <a class="text-white underline underline-offset-4 hover:text-white/90"
-                 href="https://youtube.com/shorts/jgEynjHcDfY" target="_blank" rel="noopener">Abrir no YouTube</a>
-            </div>
-          </div>
 
-          <div class="rounded-lg overflow-hidden shadow-soft bg-black/20 border border-white/10">
-            <div class="aspect-video w-full">
-              <iframe
-                class="w-full h-full"
-                src="https://www.youtube.com/embed/NyifspuB1Oo"
-                title="Vídeo - Dr. Victor Hugo"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                loading="lazy">
-              </iframe>
+            <!-- Dado Científico (Ancoragem Lógica) -->
+            <div class="max-w-4xl mx-auto bg-[#FDF8EB] border border-gold-200 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center md:items-start gap-6">
+                <div class="bg-white p-3 rounded-full text-gold-600 shadow-sm shrink-0">
+                    <i data-lucide="alert-circle" class="w-8 h-8"></i>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-navy-900 mb-2">O Perigo Oculto das Internações</h4>
+                    <p class="text-gray-700 italic leading-relaxed">"Segundo as diretrizes da ANCP, internações recorrentes em idosos frágeis aceleram a perda de massa muscular de forma irreversível, aumentam drásticamente o risco de infecções hospitalares e causam desorientação severa (delirium)."</p>
+                    <p class="text-sm text-gray-500 mt-2 font-medium">— O acompanhamento particular contínuo é a forma mais eficaz de prevenção.</p>
+                </div>
             </div>
-            <div class="px-4 py-4 text-white/80 text-sm flex items-center justify-between gap-3">
-              <span>Explicação direta, sem enrolação</span>
-              <a class="text-white underline underline-offset-4 hover:text-white/90"
-                 href="https://youtu.be/NyifspuB1Oo" target="_blank" rel="noopener">Abrir no YouTube</a>
-            </div>
-          </div>
         </div>
-
-        <div class="mt-10 text-center">
-          <a id="videosCta"
-             href="#"
-             class="inline-flex items-center justify-center px-10 py-3 rounded-md bg-ctaGreen text-black font-medium shadow-soft hover:brightness-95 transition">
-            Agendar Consulta
-          </a>
-        </div>
-      </div>
     </section>
 
-    <!-- Atuação -->
-    <section id="tratamentos" class="bg-brandSand py-14">
-      <div class="max-w-6xl mx-auto px-5">
-        <h2 class="text-white font-display text-5xl font-light text-center drop-shadow">Atuação</h2>
+    <!-- 3. EDUCATE (Sobre & Método) -->
+    <section class="py-20 bg-navy-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                
+                <!-- Imagem do Doutor -->
+                <div class="w-full lg:w-5/12">
+                    <!-- AQUI ENTRA A FOTO DO SOBRE (A FOTO DE PERNAS CRUZADAS) -->
+                    <img src="4133.webp" alt="Dr Victor Hugo" loading="lazy" class="w-full h-auto rounded-2xl shadow-2xl border-4 border-white/10 object-cover object-top">
+                    <div class="mt-6 flex flex-wrap gap-3 justify-center">
+                        <span class="px-4 py-2 bg-white/10 rounded-full text-xs font-medium backdrop-blur-sm">Pós-graduado em Geriatria (HNSG)</span>
+                        <span class="px-4 py-2 bg-white/10 rounded-full text-xs font-medium backdrop-blur-sm">Pós-graduado em C. Paliativos (Inst. Paliar)</span>
+                        <span class="px-4 py-2 bg-white/10 rounded-full text-xs font-medium backdrop-blur-sm">Pós-graduado em Med. de Família (UFMS)</span>
+                    </div>
+                </div>
 
-        <div class="mt-10 bg-brandCard/80 rounded-xl p-8 shadow-soft border border-black/10">
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+                <!-- Método -->
+                <div class="w-full lg:w-7/12">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6">Por que nosso acompanhamento é diferente de tudo que você já tentou?</h2>
+                    <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                        Sou o Dr. Victor Hugo. Escolhi dedicar minha carreira ao atendimento particular porque acredito profundamente que <strong class="text-gold-400 font-medium">volume não é qualidade</strong>. Meu modelo de cuidado foi desenhado para famílias que não aceitam atalhos quando se trata da vida.
+                    </p>
 
-            <div class="bg-white/10 rounded-lg overflow-hidden border border-white/10">
-              <img class="h-52 w-full object-cover" src="img/atuacao-avaliacao-idoso.webp" alt="Avaliação do Idoso" loading="lazy" decoding="async">
-              <div class="bg-black/50 px-4 py-3 text-white text-sm text-center">Avaliação do Idoso</div>
+                    <div class="space-y-6 mb-10">
+                        <div class="flex gap-4">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-gold-500 shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1">Consultas de 1h a 1h30</h4>
+                                <p class="text-gray-400">O tempo necessário para ouvir sua história, entender seus anseios e avaliar minuciosamente todas as queixas, sem pressa.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-gold-500 shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1">Diagnóstico Investigativo Singular</h4>
+                                <p class="text-gray-400">Não passamos apenas "mais uma receita". Vamos na raiz do problema (sono, humor, perda muscular) para uma restauração real.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-gold-500 shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1">Parceria com a Família</h4>
+                                <p class="text-gray-400">Relatórios médicos detalhados para os cuidadores e familiares, garantindo que todos saibam exatamente os próximos passos.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Print de Notícia Estilizado -->
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm border-l-4 border-l-gold-500">
+                        <h4 class="font-bold text-white mb-2 tracking-wide uppercase text-sm">Desconstruindo o Mito</h4>
+                        <p class="text-gray-300 italic">"Estudos clínicos comprovam: Cuidados Paliativos precoces em pacientes oncológicos não apenas reduzem drasticamente a dor, mas <strong class="text-gold-400">aumentam o tempo de sobrevida</strong> com qualidade e dignidade."</p>
+                    </div>
+                </div>
             </div>
-
-            <div class="bg-white/10 rounded-lg overflow-hidden border border-white/10">
-              <img class="h-52 w-full object-cover" src="img/atuacao-memoria-cognicao.webp" alt="Memória e Cognição" loading="lazy" decoding="async">
-              <div class="bg-black/50 px-4 py-3 text-white text-sm text-center">Memória e Cognição</div>
-            </div>
-
-            <div class="bg-white/10 rounded-lg overflow-hidden border border-white/10">
-              <img class="h-52 w-full object-cover" src="img/atuacao-sono-humor-energia.webp" alt="Sono, Humor e Energia" loading="lazy" decoding="async">
-              <div class="bg-black/50 px-4 py-3 text-white text-sm text-center">Sono, Humor e Energia</div>
-            </div>
-
-            <div class="bg-white/10 rounded-lg overflow-hidden border border-white/10">
-              <img class="h-52 w-full object-cover" src="img/atuacao-dor-mobilidade.webp" alt="Dor e Mobilidade" loading="lazy" decoding="async">
-              <div class="bg-black/50 px-4 py-3 text-white text-sm text-center">Dor e Mobilidade</div>
-            </div>
-
-            <div class="bg-white/10 rounded-lg overflow-hidden border border-white/10">
-              <img class="h-52 w-full object-cover" src="img/atuacao-uso-seguro-medicacoes.webp" alt="Uso Seguro de Medicações" loading="lazy" decoding="async">
-              <div class="bg-black/50 px-4 py-3 text-white text-sm text-center">Uso Seguro de Medicações</div>
-            </div>
-
-            <div class="bg-white/10 rounded-lg overflow-hidden border border-white/10">
-              <img class="h-52 w-full object-cover" src="img/atuacao-orientacao-familia.webp" alt="Orientação para Família" loading="lazy" decoding="async">
-              <div class="bg-black/50 px-4 py-3 text-white text-sm text-center">Orientação para Família</div>
-            </div>
-
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- Consultório -->
-    <section id="consultorio" class="bg-brandSand py-14">
-      <div class="max-w-6xl mx-auto px-5">
-        <h2 class="text-brandGreen font-display text-5xl font-light text-center">Consultório</h2>
-
-        <div class="mt-10 grid md:grid-cols-4 gap-5">
-          <img class="rounded-lg shadow-soft object-cover h-72 w-full" src="img/consultorio-01.webp" alt="Fachada da clínica" loading="lazy" decoding="async">
-          <img class="rounded-lg shadow-soft object-cover h-72 w-full" src="img/consultorio-02.webp" alt="Sala de espera" loading="lazy" decoding="async">
-          <img class="rounded-lg shadow-soft object-cover h-72 w-full" src="img/consultorio-03.webp" alt="Ambiente da clínica" loading="lazy" decoding="async">
-          <img class="rounded-lg shadow-soft object-cover h-72 w-full" src="img/consultorio-04.webp" alt="Recepção" loading="lazy" decoding="async">
-        </div>
-
-        <div class="mt-5 grid md:grid-cols-4 gap-5">
-          <img class="rounded-lg shadow-soft object-cover h-72 w-full md:col-span-2" src="img/consultorio-05.webp" alt="Consultório" loading="lazy" decoding="async">
-          <div class="md:col-span-2 bg-white/40 border border-black/10 rounded-lg p-6 shadow-soft">
-            <p class="text-brandGreen font-display text-xl">Ambiente pensado para acolher</p>
-            <p class="text-brandGreen/90 mt-2 text-sm leading-relaxed">
-              Um espaço confortável, organizado e discreto, para uma consulta sem pressa e com atenção real.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Depoimentos -->
-    <section id="depoimentos" class="bg-brandGreen py-14">
-      <div class="max-w-6xl mx-auto px-5">
-        <h2 class="text-white font-display text-5xl font-light text-center">Depoimentos</h2>
-
-        <div class="mt-10 grid md:grid-cols-3 gap-6">
-          <div class="bg-white/10 border border-white/10 rounded-xl p-6 shadow-soft">
-            <p class="text-white font-medium">Maísa</p>
-            <p class="mt-3 text-sm text-white/80 leading-relaxed">
-              Atendimento muito cuidadoso. Saí com um plano claro e com segurança do que fazer em casa.
-              Foi a primeira vez que senti que alguém realmente organizou tudo.
-            </p>
-          </div>
-
-          <div class="bg-white/10 border border-white/10 rounded-xl p-6 shadow-soft">
-            <p class="text-white font-medium">Beatriz</p>
-            <p class="mt-3 text-sm text-white/80 leading-relaxed">
-              Eu tinha muitas dúvidas sobre remédios e rotina. A consulta foi tranquila, sem pressa,
-              e o acompanhamento fez diferença na evolução.
-            </p>
-          </div>
-
-          <div class="bg-white/10 border border-white/10 rounded-xl p-6 shadow-soft">
-            <p class="text-white font-medium">Danielle</p>
-            <p class="mt-3 text-sm text-white/80 leading-relaxed">
-              Minha família precisava de orientação prática. Foi direto, humano e com muita clareza.
-              Recomendo para quem quer cuidado de verdade.
-            </p>
-          </div>
-        </div>
-
-        <div class="mt-10 text-center">
-          <a id="depoCta"
-             href="#"
-             class="inline-flex items-center justify-center px-10 py-3 rounded-md bg-ctaGreen text-black font-medium shadow-soft hover:brightness-95 transition">
-            Agendar Consulta
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contato -->
-    <section id="contato" class="bg-brandSand py-14">
-      <div class="max-w-6xl mx-auto px-5">
-        <h2 class="text-brandGreen font-display text-5xl font-light text-center">Contato</h2>
-
-        <div class="mt-10 grid lg:grid-cols-2 gap-8 items-start">
-          <div class="bg-white/40 rounded-xl p-7 shadow-soft border border-black/10">
-            <p class="text-brandGreen font-display text-xl">Agende pelo WhatsApp</p>
-            <p class="text-brandGreen/90 mt-2 text-sm leading-relaxed">
-              Atendimento particular. Clique no botão e fale direto com a equipe para horários disponíveis.
-            </p>
-
-            <div class="mt-6 space-y-3 text-brandGreen text-sm">
-              <p><span class="font-semibold">Endereço:</span> R. 115, 2100 - St. Sul, Goiânia - GO, 74085-325</p>
-              <p><span class="font-semibold">Telefone:</span> (41) 8863-0813</p>
-              <p><span class="font-semibold">Atendimento:</span> Segunda a Sexta, 08:00 às 18:00</p>
+    <!-- 3.5. VIDEOS (Autoridade Visual) -->
+    <section class="py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-navy-900 mb-4">Conheça nossa abordagem mais de perto</h2>
+                <p class="text-gray-600 text-lg">Assista aos vídeos abaixo para entender como o Dr. Victor Hugo transforma o acompanhamento médico em um projeto de vida e longevidade.</p>
             </div>
 
-            <div class="mt-7 flex flex-col sm:flex-row gap-3">
-              <a id="contactCta"
-                 href="#"
-                 class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-ctaGreen text-black font-medium shadow-soft hover:brightness-95 transition">
-                Falar no WhatsApp
-              </a>
-              <a href="#inicio"
-                 class="inline-flex items-center justify-center px-6 py-3 rounded-md border border-brandGreen/30 text-brandGreen hover:bg-black/5 transition">
-                Voltar ao topo
-              </a>
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Video 1 -->
+                <div class="rounded-2xl overflow-hidden shadow-sm border border-gray-200 transition-all hover:shadow-md aspect-video w-full bg-navy-900">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/jgEynjHcDfY?rel=0&modestbranding=1" title="Vídeo - Dr. Victor Hugo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="rounded-2xl overflow-hidden shadow-sm border border-gray-200 transition-all hover:shadow-md aspect-video w-full bg-navy-900">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/NyifspuB1Oo?rel=0&modestbranding=1" title="Vídeo - Dr. Victor Hugo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. STIMULATE (Histórias de Transformação Anônimas & Dados) -->
+    <section class="py-20 bg-sand-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-navy-900 mb-4">Vidas e histórias restauradas através do cuidado certo.</h2>
+                <p class="text-gray-600 text-lg">O objetivo final da medicina não é apenas adicionar dias à vida, mas vida aos dias.</p>
             </div>
 
-            <p class="text-brandGreen/80 mt-4 text-xs">
-              Importante: comunicação objetiva e segura.
-            </p>
-          </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Caso 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-8 h-8 text-sand-100 opacity-50 fill-current"></i>
+                    <h3 class="text-navy-900 font-bold mb-4 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-gold-500 rounded-full"></span> Conforto e Sobrevida
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed italic">"Paciente oncológico (neoplasia de cólon) que chegou com expectativa inicial de apenas 4 meses e dores agudas. Com o ajuste paliativo adequado, alcançou 11 meses de sobrevida com conforto absoluto, rodeado pela família."</p>
+                </div>
 
-          <div class="bg-white/30 rounded-xl p-3 shadow-soft border border-black/10">
-            <iframe
-              src="https://www.google.com/maps?q=R.%20115%2C%202100%20-%20St.%20Sul%2C%20Goi%C3%A2nia%20-%20GO&output=embed"
-              class="w-full h-[420px] rounded-lg"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Mapa - Consultório">
-            </iframe>
-          </div>
+                <!-- Caso 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-8 h-8 text-sand-100 opacity-50 fill-current"></i>
+                    <h3 class="text-navy-900 font-bold mb-4 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-gold-500 rounded-full"></span> O Retorno à Alegria
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed italic">"Após meses de sofrimento com o tratamento de um câncer de colo de útero, realizamos o controle preciso e singular dos sintomas. O alívio foi tão profundo que a paciente retomou seu maior desejo: voltou a cozinhar para os netos."</p>
+                </div>
+            </div>
+
+            <!-- Box IBGE -->
+            <div class="max-w-2xl mx-auto text-center border-t border-b border-gray-200 py-6">
+                <p class="text-sm text-gray-500 uppercase tracking-widest font-semibold mb-2">A Urgência de Agir Hoje</p>
+                <p class="text-navy-900 font-medium">Segundo o IBGE, a população acima de 65 anos cresceu 57% na última década. O grande desafio atual já não é apenas envelhecer, é <strong class="text-gold-600">garantir que o envelhecimento seja independente, lúcido e livre de dores.</strong></p>
+            </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <footer class="bg-brandDark text-white py-10 text-center">
-    <p class="font-display font-semibold">Dr. Victor Hugo</p>
-    <p class="text-sm text-white/70 mt-1">Médico dedicado à Saúde do Idoso • Goiânia</p>
-  </footer>
+    <!-- 5. TRANSITION (Serviços e Formulário SQL) -->
+    <section id="agendamento" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="bg-navy-900 rounded-[2rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+                
+                <!-- Serviços Resumo -->
+                <div class="w-full lg:w-1/2 p-10 lg:p-14 bg-navy-900 text-white relative">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-bl-full -z-0"></div>
+                    <div class="relative z-10">
+                        <h2 class="text-3xl font-serif font-bold mb-4">Dê o primeiro passo para a tranquilidade da sua família.</h2>
+                        <p class="text-gray-300 mb-10">Conheça nossas modalidades de atendimento exclusivo.</p>
 
-  <a id="waFloat"
-     href="#"
-     aria-label="WhatsApp"
-     class="fixed bottom-5 right-5 w-14 h-14 rounded-full bg-[#25D366] shadow-soft flex items-center justify-center hover:brightness-95 transition z-50">
-    <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <path fill="white" d="M19.11 17.53c-.27-.14-1.6-.8-1.85-.9-.25-.1-.43-.14-.61.14-.18.27-.7.9-.85 1.08-.16.18-.31.2-.58.07-.27-.14-1.12-.41-2.13-1.3-.79-.7-1.32-1.56-1.47-1.82-.15-.27-.02-.41.11-.54.12-.12.27-.31.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.48-.84-2.03-.22-.53-.44-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3 0 1.36.99 2.67 1.13 2.86.14.18 1.95 2.98 4.72 4.18.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.82-1.27.22-.63.22-1.16.16-1.27-.07-.11-.25-.18-.52-.32z"/>
-      <path fill="white" d="M16.02 3C8.83 3 3 8.7 3 15.73c0 2.2.6 4.25 1.64 6.04L3.6 29l7.46-1.96c1.72.94 3.7 1.48 5.96 1.48 7.19 0 13.02-5.7 13.02-12.73C30.04 8.7 24.21 3 16.02 3zm0 23.04c-2.04 0-3.9-.58-5.5-1.56l-.4-.25-4.43 1.17 1.18-4.19-.27-.41a10.9 10.9 0 0 1-1.74-5.77c0-6.04 5.01-10.95 11.16-10.95 6.15 0 11.16 4.91 11.16 10.95 0 6.04-5.01 10.95-11.16 10.95z"/>
-    </svg>
-  </a>
+                        <div class="space-y-6">
+                            <div class="bg-white/5 border border-white/10 p-5 rounded-xl backdrop-blur-sm">
+                                <h4 class="font-bold text-gold-400 mb-1 flex items-center gap-2"><i data-lucide="stethoscope" class="w-4 h-4"></i> Consultas (Presencial / Telemedicina)</h4>
+                                <p class="text-sm text-gray-300">Avaliação completa, diagnóstico investigativo e elaboração de plano terapêutico singular.</p>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 p-5 rounded-xl backdrop-blur-sm">
+                                <h4 class="font-bold text-gold-400 mb-1 flex items-center gap-2"><i data-lucide="car" class="w-4 h-4"></i> Visita Domiciliar Exclusiva</h4>
+                                <p class="text-sm text-gray-300">O conforto do atendimento de excelência no leito do paciente (Goiânia e região).</p>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 p-5 rounded-xl backdrop-blur-sm">
+                                <h4 class="font-bold text-gold-400 mb-1 flex items-center gap-2"><i data-lucide="shield" class="w-4 h-4"></i> Programas VIVA (Acompanhamento)</h4>
+                                <p class="text-sm text-gray-300">Gestão de saúde contínua (2 a 3 meses) focada em prevenção e manejo severo de sintomas, com suporte total via WhatsApp.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-  <script>
-    document.getElementById("topCta").href = WA_LINK;
-    document.getElementById("heroCta").href = WA_LINK;
-    document.getElementById("videosCta").href = WA_LINK;
-    document.getElementById("depoCta").href = WA_LINK;
-    document.getElementById("contactCta").href = WA_LINK;
-    document.getElementById("mobileCta").href = WA_LINK;
-    document.getElementById("waFloat").href = WA_LINK;
+                <!-- Chamada Direta WhatsApp -->
+                <div class="w-full lg:w-1/2 p-10 lg:p-14 bg-sand-50 flex flex-col justify-center">
+                    <h3 class="text-2xl md:text-3xl font-bold text-navy-900 mb-4">Atendimento Humanizado desde o primeiro contato</h3>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">Para garantir a exclusividade que a sua família merece, nosso agendamento é feito de forma direta e pessoal pelo WhatsApp.</p>
 
-    const btn = document.getElementById("mobileMenuBtn");
-    const menu = document.getElementById("mobileMenu");
-    btn.addEventListener("click", () => menu.classList.toggle("hidden"));
-    menu.querySelectorAll("a[href^='#']").forEach(a => {
-      a.addEventListener("click", () => menu.classList.add("hidden"));
-    });
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm mb-8">
+                        <h4 class="font-bold text-navy-900 mb-2 flex items-center gap-2">
+                            <i data-lucide="clock" class="w-5 h-5 text-gold-500"></i>
+                            Resposta Rápida
+                        </h4>
+                        <p class="text-gray-600 text-sm">O Dr. Victor ou sua equipe retornarão o seu contato o mais breve possível para entender o seu caso e alinhar o plano ideal de acompanhamento.</p>
+                    </div>
 
-    const els = document.querySelectorAll(".fade-in");
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add("is-visible");
-      });
-    }, { threshold: 0.15 });
-    els.forEach(el => obs.observe(el));
-  </script>
+                    <a href="https://wa.me/554188630813?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Victor!" target="_blank" rel="noopener noreferrer" class="w-full bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-lg px-6 py-4 rounded-lg shadow-md transition-all flex items-center justify-center gap-3 transform hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 focus:ring-offset-sand-50 cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        Agendar Consulta Particular
+                    </a>
 
+                    <p class="text-sm text-center text-gray-500 mt-5 font-medium">
+                        <i data-lucide="lock" class="w-3 h-3 inline mr-1 -mt-0.5"></i>
+                        Contato: (41) 8863-0813
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER & FAQ -->
+    <footer class="bg-white border-t border-gray-100 pt-16 pb-8">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 mb-16">
+            <h2 class="text-2xl font-serif font-bold text-navy-900 text-center mb-8">Perguntas Frequentes</h2>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center bg-sand-50 hover:bg-sand-100 transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gold-500 cursor-pointer" aria-expanded="false">
+                        <span class="font-bold text-navy-900">O Dr. Victor atende por Planos de Saúde?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gold-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 text-gray-600 bg-white border-t border-gray-100 leading-relaxed">
+                        Não. O modelo de consulta que praticamos não contempla as exigências de volume dos planos de saúde. Nossas consultas duram de 1 hora a 1 hora e meia para garantir um diagnóstico minucioso e de altíssima qualidade. No entanto, fornecemos recibo médico detalhado para que você solicite o <strong class="text-navy-900">reembolso</strong> junto ao seu plano.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center bg-sand-50 hover:bg-sand-100 transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gold-500 cursor-pointer" aria-expanded="false">
+                        <span class="font-bold text-navy-900">Como funciona o pagamento?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gold-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 text-gray-600 bg-white border-t border-gray-100 leading-relaxed">
+                        Prezamos pela flexibilidade para sua família. Aceitamos PIX, transferências bancárias, dinheiro e cartões de débito. Para os Programas de Acompanhamento (Planos VIVA), oferecemos a facilidade de <strong class="text-navy-900">parcelamento em até 10 vezes no cartão de crédito</strong>.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center bg-sand-50 hover:bg-sand-100 transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gold-500 cursor-pointer" aria-expanded="false">
+                        <span class="font-bold text-navy-900">Apenas idosos muito debilitados devem agendar?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gold-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 text-gray-600 bg-white border-t border-gray-100 leading-relaxed">
+                        Absolutamente não. Atendemos dois grandes perfis: o paciente com doença grave (Cuidados Paliativos) para alívio de sofrimento, mas também o paciente de 55+ anos ativo (atuação preventiva) que deseja envelhecer com saúde, autonomia e preservar sua massa muscular e memória intactas.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center border-t border-gray-100 pt-8 flex flex-col items-center">
+            <span class="text-xl font-serif font-bold text-navy-900 mb-2">DR. VICTOR HUGO</span>
+            <p class="text-sm text-gray-500 mb-4">Longevidade com ciência e cuidado humano em Goiânia • CRM-GO 30046</p>
+            <p class="text-xs text-gray-400 mb-1">VIVER BEM SERVICOS MEDICOS LTDA | CNPJ: 61.785.693/0001-60</p>
+            <p class="text-xs text-gray-400">© 2024 Dr. Victor Hugo. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante WhatsApp (Fixo) -->
+    <a href="https://wa.me/554188630813?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Victor!" target="_blank" rel="noopener noreferrer" aria-label="Falar com nossa equipe via WhatsApp" class="fixed bottom-6 right-6 bg-[#25D366] hover:bg-[#1EBE5D] text-white p-4 rounded-full shadow-2xl transition-transform hover:scale-110 z-50 flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-[#25D366] focus:ring-opacity-50 cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+
+    <!-- UI Scripts (Icons & Interactions) -->
+    <script>
+        // Inicializar Ícones Lucide
+        lucide.createIcons();
+
+        // Lógica do Accordion (FAQ)
+        document.querySelectorAll('.faq-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                
+                content.classList.toggle('hidden');
+                button.setAttribute('aria-expanded', !isExpanded);
+                
+                if(content.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    </script>
+
+    <!-- Tracking Scripts from Old Site -->
+    <script src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" xintegrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"6ed1ef746a674331ac07e5a9a4a48d30","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+    <script type="text/javascript" id="gclid-script">
+        function getParam(a){return(a=RegExp("[?\x26]"+a+"\x3d([^\x26]*)").exec(window.location.search))&&decodeURIComponent(a[1].replace(/\+/g," "))}
+        function getExpiryRecord(a){var b=7776E6;b=(new Date).getTime()+b;return{value:a,expiryDate:b}}
+        function addGclid(){var a=getParam("gclid"),b=["gclid","foobar"],d=null,e,c=getParam("gclsrc");c=!c||c.indexOf("aw")!==-1;b.forEach(function(f){document.getElementById(f)&&(e=document.getElementById(f))});a&&c&&(d=getExpiryRecord(a),localStorage.setItem("gclid",JSON.stringify(d)));b=(a=d||JSON.parse(localStorage.getItem("gclid")))&&(new Date).getTime()<a.expiryDate;e&&b&&(e.value=a.value)}
+        setTimeout(function(){window.addEventListener("load",addGclid)},3E3);
+    </script>
+    
+    <script type="text/javascript" id="wa-interceptor-script">
+        (function(){function f(a){document.readyState==="loading"?document.addEventListener("DOMContentLoaded",a):a()}function g(a){return a?h.some(function(b){return b.test(a)}):!1}var h=[/wa\.me/,/api\.whatsapp\.com/];f(function(){document.addEventListener("click",function(a){if(a.target.closest)a=a.target.closest("a");else a:{for(a=a.target;a&&a!==document;){if(a.tagName&&a.tagName.toLowerCase()==="a")break a;a=a.parentNode}a=null}if(a&&g(a.href))try{var b=new URL(a.href,window.location.href),c=b.searchParams.get("text")||"",d,e=("; "+document.cookie).split("; cookieSessionId\x3d");(d=e.length===2?e.pop().split(";").shift():"")&&c.indexOf("N\u00ba do Atendimento:")===-1&&(c+=(c?"\n\n":"")+"N\u00ba do Atendimento: "+d,b.searchParams.set("text",c),a.href=b.toString())}catch(k){console.warn("Erro ao ajustar link WhatsApp via GTM:",k)}},!0)})})();
+    </script>
+
+    <script type="text/javascript" id="fb-pixel-script">
+        !function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+        fbq("init","735396036160586");
+        fbq("track","PageView");
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=735396036160586&amp;ev=PageView&amp;noscript=1"></noscript>
+    
+    <script type="text/javascript" id="cookie-session-script">
+        var cookieName="cookieSessionId",cookieValue="1776193583",cookiePath="/",expirationTime=63072E3;expirationTime*=1E3;var date=new Date,dateTimeNow=date.getTime();date.setTime(dateTimeNow+expirationTime);expirationTime=date.toUTCString();document.cookie=cookieName+"\x3d"+cookieValue+"; expires\x3d"+expirationTime+"; path\x3d"+cookiePath;
+    </script>
 </body>
 </html>
