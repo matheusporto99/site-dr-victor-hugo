@@ -1,0 +1,29 @@
+Site Dr. Victor Hugo: o que falta antes de publicar
+======================================================
+
+1) Domínio
+   Troque "https://www.SEUDOMINIO.com.br" pelo domínio real nos 3 HTMLs
+   (canonical, og:url, og:image e dados estruturados). Localizar e substituir resolve.
+
+2) Fotos (pasta img/) - já instaladas
+   img/dr-victor-hero.webp  (foto 4133.webp do site antigo, 800x1000)
+   img/dr-victor-sobre.webp (foto 4137.webp do site antigo, 800x800)
+   Se tiver as versões em alta (dr-victor-hero-desktop.webp), é só substituir
+   mantendo o nome do arquivo.
+
+3) Fontes (pasta fonts/) - já instaladas, auto-hospedadas
+   playfair-display-latin.woff e inter-latin.woff (subset latin, ~90 KB juntas),
+   tiradas do repositório oficial do Google Fonts. Licenças OFL na mesma pasta.
+
+4) Google Tag Manager (GTM-MH6MCPKR)
+   GA4 (G-RSC1H138M4 e G-WYZ3SE0TH4), Google Ads (AW-17814734788), a conversão
+   do clique no WhatsApp e o Meta Pixel já estão no código da página.
+   No contêiner do GTM, pause qualquer tag que faça a mesma coisa (GA4, Ads,
+   conversão, Pixel) para não contar em dobro. Remova também a AW-18288469529.
+   Eventos enviados ao dataLayer para usar no GTM, se quiser:
+     whatsapp_click (wa_local), cookie_consent (consent_choice),
+     vh_attribution (vh_gclid, vh_utm_source, vh_utm_medium, ...).
+
+5) Cookies
+   vh_consent = all | essential (12 meses)
+   vh_attr    = gclid / utm_* (90 dias, só gravado depois de "Aceitar e continuar")
